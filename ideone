@@ -133,3 +133,5 @@ if __name__ == '__main__':
 	print "stderr:"
 	print stderr
 
+# YourProduct uses <a href="http://ideone.com">Ideone API</a> &copy;
+# by <a href="http://sphere-research.com">Sphere Research Labs</a>
