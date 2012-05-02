@@ -10,10 +10,10 @@ Ubuntu
 
     $ sudo apt-get install python-soappy
 
-Edit config file
+Edit config file, if you won't username and password on each execution.
 
-    $ cp param.ini.sample param.ini
-    $ vi param.ini
+    $ cp idoene.ini.sample ~/.ideone.ini
+    $ vi ~/.ideone.ini
 
 Usage Exapmle
 -----

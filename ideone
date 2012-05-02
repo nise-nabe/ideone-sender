@@ -2,6 +2,7 @@
 import sys
 import os.path
 import ConfigParser
+from getpass import getpass
 from SOAPpy import WSDL
 
 def fileext(filename):
@@ -104,12 +105,17 @@ if __name__ == '__main__':
 	if argc<2:
 		print 'usage: python %s sourcefile [inputfile]' % argv[0]
 		quit()
-	
-	conf = ConfigParser.SafeConfigParser()
-	conf.read('param.ini')
 
-	user = conf.get('user', 'username')
-	passwd = conf.get('user', 'password');
+	conffile = os.path.expanduser('~/.ideone.ini')
+	if os.path.exists(conffile):
+		conf = ConfigParser.SafeConfigParser()
+		conf.read(conffile)
+
+		user = conf.get('user', 'username')
+		passwd = conf.get('user', 'password');
+	else:
+		user = raw_input('username: ')
+		passwd = getpass()
 
 	wsdlObject = WSDL.Proxy('http://ideone.com/api/1/service.wsdl')
 
